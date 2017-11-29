@@ -23,6 +23,7 @@ configure do
         int :intelligence
         int :wisdom
         int :charisma
+        int :xp
     end
 
     #create the environments table
