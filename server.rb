@@ -26,6 +26,9 @@ configure do
         int :xp
     end
 
+    #connect the monsters model
+    require_relative "Monster"
+
     #create the environments table
     DB.create_table? :environments do
 
@@ -33,6 +36,9 @@ configure do
         String :name
         String :description
     end
+
+    #connect the environments model
+    require_relative "Environment"
 
     #create the join table for the many-to-many relationship between monsters and environments
     if not DB.table_exists? :monsters_environments
