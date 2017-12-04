@@ -1,4 +1,5 @@
 require "sequel"
+require "sinatra"
 
 #set up the database
 configure do
