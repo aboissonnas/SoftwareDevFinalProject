@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Creator</title>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <script type='text/javascript' src='charcreate.js'></script>
+
+
+</head>
+
+
+<body> 
+<!-- content first, nice looking website second -->
+    <p>so you wanna create a character??? let's do it!</p>
+
+    Character Name: <input id='character_name' type='text' /><br/>
+    Player Name: <input id='player_name' type='text' /><br/>
+    Bio: <textarea rows='10' cols='50' id='bio'> </textarea>
+
+    <select id='race_choices' name='race' type='text'>
+  <% @races.each() do |race| %>
+    <option value= "<%= race.id()%>"> <%= race.racename() %> </option>
+  <% end %>
+    </select>
+    <div id='race_flavor'>
+
+    </div>
+
+    <select id='role_choices' name='role' type='text'>
+  <% @roles.each() do |role| %>
+    <option value= "<%= role.role_id()%>"> <%= role.rolename() %> </option>
+  <% end %>
+    </select>
+    <div id='role_flavor'>
+
+    </div>
+
+    <input id = 'showSpells' type = 'submit' text = 'Show spells'>
+
+    <div id='spells'>
+    <!--only populate if class gets spells. No spells for fighters! 
+    System works on many-to-many relationship between spellbook and spells
+    Probably just do a basic formula for spell amounts per level
+    Might have buttons toggle between add and remove so your decision isn't final until final submit -->
+    </div>
+
+    <div id='abilities'>
+      <div >Strength: <input type="number" id='strength' class ='abil'  min="1" max="18"><br/></div>
+      <div >Dexterity: <input type="number" id='dex' class ='abil' min="1" max="18"><br/></div>
+      <div >Constitution: <input type="number" id='con' class ='abil'  min="1" max="18"><br/></div>
+      <div >Intelligence: <input type="number" id='intel' class ='abil' min="1" max="18"><br/></div>
+      <div >Wisdom: <input type="number" id='wis' min="1"class ='abil' max="18"><br/></div>
+      <div >Charisma: <input type="number" id='cha' min="1"class ='abil' max="18"><br/></div>
+
+      <input id = 'abilRoll' type = 'submit'>Roll for ability input</input><br/>
+      <div id = 'total'>
+      </div>
+    </div>
+
+    <input id = 'charCreateButton' type = 'submit' text = 'Submit character'>
+
+</body>
+
+</html>

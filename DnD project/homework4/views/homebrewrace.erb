@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Race Creator</title>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type='text/javascript' src='homebrewrace.js'></script>
+
+
+</head>
+
+
+<body> 
+<!-- content first, nice looking website second -->
+    <p>so you wanna add a race to our website? Great!</p>
+
+    Race Name: <input id='race_name' type='text' /><br/>
+    Race description:<br/> <textarea rows='10' cols='50' id='race_desc'> </textarea><br/>
+    Buff 1: <input type="number" id='buff1'  min="0" max="2"><br/>
+    Where?     <select id='b1where' name='role' type='text'>
+    <option value= "Strength">Strength </option>
+    <option value= "Dexterity">Dexterity  </option>
+    <option value= "Constitution">Constitution  </option>
+    <option value= "Intelligence">Intelligence  </option>
+    <option value= "Wisdom"> Wisdom </option>
+    <option value= "Charisma">Charisma  </option>
+    </select> <br/>
+    Buff 2:<input type="number" id='buff2'  min="0" max="2"><br/>
+    Where?      <select id='b2where' name='role' type='text'>
+    <option value= "Strength">Strength </option>
+    <option value= "Dexterity">Dexterity  </option>
+    <option value= "Constitution">Constitution  </option>
+    <option value= "Intelligence">Intelligence  </option>
+    <option value= "Wisdom"> Wisdom </option>
+    <option value= "Charisma">Charisma  </option>
+    </select> <br/>
+    Penalty: <input type="number" id='penalty'  min="0" max="2"><br/>
+    Where:<select id='pwhere' name='role' type='text'>
+    <option value= "Strength">Strength </option>
+    <option value= "Dexterity">Dexterity  </option>
+    <option value= "Constitution">Constitution  </option>
+    <option value= "Intelligence">Intelligence  </option>
+    <option value= "Wisdom"> Wisdom </option>
+    <option value= "Charisma">Charisma  </option>
+    </select> <br/>
+
+    <input id = 'submitRace' type = 'submit' text = 'submit'>
+    <div id = 'raceError'> </div>
+
+
+
+</body>

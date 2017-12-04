@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Creator Home</title>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+
+</head>
+
+
+<body> 
+<!-- content first, nice looking website second -->
+    <p>welcome to the simplified dungeons and dragons character sheet website </p>
+
+    <p> you can create your own character! you can also make a race or a spell if our selection is garbage</p>
+
+    <p> to create a character, append /newCharacter to the URL</p>
+    <p> to create a race, append /newRace to the URL </p>
+    <p> to create a spell, append /newSpell to the URL</p>
+
+    <p> list of characters: </p>
+    <div id ='characters'>
+      <% @allcharacters.each() do |char| %>
+     <strong><%= char.character() %></strong> <br/>
+     Player: <%= char.player() %> <br/>
+     <%= race = Race[:id => char.racename()] %>
+     Race: <%= race.racename() %> <br/>
+     <%= role = Role[:role_id => char.role_id()] %> 
+     Class: <%= role.rolename() %> <br/>
+     Str: <%= char.str() %> Dex: <%= char.dex() %> Con: <%= char.con() %>
+     Int: <%= char.intel() %> Wis: <%= char.wis() %> Cha: <%= char.cha() %> <br/>
+    <% end %>
+    </div>
+
+</body>
+
+</html>
