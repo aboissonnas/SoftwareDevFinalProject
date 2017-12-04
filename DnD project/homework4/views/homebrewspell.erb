@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spell Creator</title>
+    <!-- jquery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type='text/javascript' src='homebrewspell.js'></script>
+
+
+</head>
+
+
+<body> 
+<!-- content first, nice looking website second -->
+    <p>so you wanna add a spell to our website? Great!</p>
+
+
+    Spell Name: <input id='spell_name' type='text' /><br/>
+    Level: <input type="number" id='spell_level'  min="0" max="9"><br/>
+    What it does: <textarea rows='10' cols='50' id='spell_text'> </textarea> <br/>
+    Class that can cast it:<select id='role_spell' name='role' type='text'>
+  <% @roles.each() do |role| %>
+    <option value= "<%= role.role_id()%>"> <%= role.rolename() %> </option>
+  <% end %>
+    </select>
+
+    <input id = 'submitSpell' type = 'submit' text = 'submit'>
+    <div id = 'spellError'> </div> <!-- should only populate if name is the same-->
+
+</body>

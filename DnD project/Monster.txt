@@ -1,0 +1,4 @@
+Aarakocra,An Air Elemental Monster,13,12,0,2,1,10,14,10,11,12,11,air plane
+Aboleth,A Sea Monster,135,17,2,-1,2,21,9,15,18,15,18,deep sea
+Deva,An Angel,136,17,4,4,5,18,18,18,17,20,20,all
+Ankheg,Gosh that thing looks gross as heck,39,14,1,0,1,17,11,13,1,13,6,underground,forests,feilds,tunnles  
