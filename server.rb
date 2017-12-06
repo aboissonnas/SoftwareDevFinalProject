@@ -104,3 +104,7 @@ configure do
             end
 end
 
+get '/' do
+
+    erb :home
+end
