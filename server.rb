@@ -2,7 +2,6 @@ require "sequel"
 require "sinatra"
 require 'sinatra/json'
 require 'sqlite3'
-<<<<<<< HEAD
 
 def read_monster_file(filepath)
     
@@ -64,8 +63,6 @@ def read_monster_file(filepath)
         puts "Error: invalid monster file"
     end
 end
-=======
->>>>>>> master
 
 #set up the database
 configure do
