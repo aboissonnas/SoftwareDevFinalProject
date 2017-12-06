@@ -5,17 +5,21 @@ Enter a number of party members: <input type="number" min=1 max=20>
 Enter a level: <input type="number", min=1 max=20>
 <form>
     <fieldset>
-        <legend>Envirorment</legend>
+        <legend>Environment</legend>
         <p>
-            <label>filler text</label>
-            <select id="hi">
-                <option value="1">one</option>
-                <option value="2">two</option>
-                <option value="3">three</option>
-                <option value="4">four</option>
+            <label></label>
+            <select id="environments">
+                  <% @environs.each() do |environ| %>
+             <option value= "<%= environ.id()%>"> <%= environ.name() %> </option>
+                <% end %>
             </select>
         </p>
     </fieldset>
 </form>
-Difficulty of encounter: <input type="number">
+Difficulty of encounter: <select id = "diff">
+<option value = 1></option>
+<option value = 2></option>
+<option value = 3></option>
+<option value = 4></option>
+</select>
 </html>
