@@ -113,8 +113,7 @@ configure do
     read_monster_file("Monster.txt")
 end
 
-
 get '/' do
-
+    @environs = Environment.all
     erb :home
 end
