@@ -115,6 +115,6 @@ end
 
 
 get '/' do
-
+    @environs = Environment.all
     erb :home
 end
