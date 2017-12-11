@@ -13,7 +13,7 @@ Enter a level: <input type="number" id='party-level' min=1 max=20>
         <legend>Environment</legend>
         <p>
             <label></label>
-            <select id="environments">
+            <select id='environments'>
                   <% @environs.each() do |environ| %>
              <option value= "<%= environ.id()%>"> <%= environ.name() %> </option>
                 <% end %>

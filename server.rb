@@ -119,9 +119,13 @@ get '/' do
 end
 
 post '/' do
-    environmentalMonsters = :environments_monsters.where(environment => params[:environment])
-    ids = environmentalMonsters.id
-    eligible = Monster.where(:id => ids, :xp <= params[maxXP])
-    # should be all monsters with that xp and that environment
+    environmentalMonsters = Environment[:id => params[:environment]]
+    puts environmentalMonsters.id
+    envimonsters = environmentalMonsters.monsters
+    for i in envimonsters
+        puts i
+    end
+    #eligible = Monster.where(:xp < params[:maxXP])
     # maybe just grab monsters and compare ids and then randomize to send one back
+    return nil
 end

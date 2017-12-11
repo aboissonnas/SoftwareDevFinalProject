@@ -12,9 +12,12 @@ $(document).ready(function() {
 
         $('#encounter').empty(); // we only wanna empty it out if it's being clicked again
         monsterXP = 0;
+
+        console.log($('#environments').val());
        // while(monsterXP < totalXP - (partyLevel * 50))
         //{
-            $.post('/', {environment: $('#environment').val(), maxXP: totalXP}, function(data){
+            $.post('/', {environment: $('#environments').val(), maxXP: totalXP}, function(data){
+                
 
 
             });
