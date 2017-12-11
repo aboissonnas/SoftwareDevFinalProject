@@ -6,8 +6,8 @@
 <script type='text/javascript' src='home.js'></script>
 </head>
 <body>
-Enter a number of party members: <input type="number" min=1 max=20>
-Enter a level: <input type="number", min=1 max=20>
+Enter a number of party members: <input type="number" id='party-number' min=1 max=20>
+Enter a level: <input type="number" id='party-level' min=1 max=20>
 <form>
     <fieldset>
         <legend>Environment</legend>
@@ -29,5 +29,7 @@ Difficulty of encounter: <select id = "diff">
 </select>
 
 <button id='generate'>Generate Encounter</button>
+<div id = 'encounter'>
+</div>
 </body>
 </html>

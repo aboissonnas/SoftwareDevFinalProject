@@ -117,3 +117,11 @@ get '/' do
     @environs = Environment.all
     erb :home
 end
+
+post '/' do
+    environmentalMonsters = :environments_monsters.where(environment => params[:environment])
+    ids = environmentalMonsters.id
+    eligible = Monster.where(:id => ids, :xp <= params[maxXP])
+    # should be all monsters with that xp and that environment
+    # maybe just grab monsters and compare ids and then randomize to send one back
+end
