@@ -16,7 +16,6 @@ Vine Blight,An evil animated plant,26,12,2,-1,0,15,8,14,5,10,3,100,forests
 Bugbear,The opposite of a hugbear,27,16,1,2,0,15,14,13,8,11,9,200,all
 Bulette,Also called a Land Shark,94,17,5,0,0,19,11,21,2,10,5,1800,forests,fields
 Bullywug,A bipedal sentient frog,11,15,1,1,0,12,12,13,7,10,7,50,swamps
-<<<<<<< HEAD
 Cambion,A human/demon hybrid,82,19,3,4,1,18,18,16,14,12,16,1800,all
 Carrion Crawler,A scavanger,51,13,3,1,1,14,13,16,1,12,5,450,caves,sewers,dungeons,marshes
 Centaur,Peaceful isolationists,45,12,2,2,1,18,14,14,9,13,11,450,plains,forests
@@ -36,7 +35,6 @@ Chasme,A Mosquito Demon,84,15,1,2,2,15,15,12,11,14,10,2300,hell
 Dretch,A regular demon,18,11,1,0,-1,11,11,12,5,8,3,50,hell
 Glabrezu,A dragon demon,157,17,5,2,3,20,15,21,19,17,16,5000,hell
 Goristro,A horned demon,310,19,7,0,1,25,11,25,6,13,14,18000,hell
-=======
 Cambion,A human/demon hybrid,82,19,3,4,1,18,18,16,14,12,16,all
 Carrion Crawler,A scavanger,51,13,3,1,1,14,13,16,1,12,5,caves,sewers,dungeons,marshes
 Centaur,Peaceful isolationists,45,12,2,2,1,18,14,14,9,13,11,fields,forests
@@ -68,4 +66,3 @@ Mezzoloth,Yugoloth foot soldiers,75,18,3,0,0,18,11,16,7,10,11,1800,Archeron,Gehe
 Nycaloth,Yugoloth air and stealth troops,123,18,4,0,0,20,11,19,12,10,15,Archeron,Gehenna,Hades,Carceri
 Ultroloth,Yugoloth commanders,153,19,4,3,2,16,16,18,18,15,19,10000,Archeron,Gehenna,Hades,Carceri
 Zombie,Shambling undead,22,8,3,-2,-2,13,6,16,3,6,5,50,all
->>>>>>> parent of 3ef63c0... Merge pull request #12 from aboissonnas/ArianeWorking
