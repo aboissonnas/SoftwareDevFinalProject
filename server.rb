@@ -109,7 +109,11 @@ configure do
 
         DB.create_join_table :monster_id => :monsters, :environment_id => :environments
     end
-    print("Hello World")
     #populate the database
     read_monster_file("Monster.txt")
+end
+
+get '/' do
+    @environs = Environment.all
+    erb :home
 end
