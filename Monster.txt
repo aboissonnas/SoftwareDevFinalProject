@@ -29,6 +29,15 @@ Cyclops,A one eyed gaint,138,14,5,0,-2,22,11,20,8,6,10,forests,fields
 Darkmantle,An octopus that lives on cave ceilings,22,11,1,1,0,16,12,13,2,10,5,caves
 Death Knight,A dead unholy paladin,180,20,5,0,3,20,11,20,12,16,18,all
 Demilich,A skull with gem eyes,80,20,0,5,3,1,20,10,20,17,20,all
+Specter,A trapped spirit,22,12,0,2,0,1,14,11,10,10,11,200,caves,tombs,graveyards,crypts
+Androsphinx,A male guardian of gods' treasures,199,17,5,0,4,22,10,20,16,18,23,18000,temples
+Gynosphinx,A female guardian of gods' treasures,136,17,3,2,4,18,15,16,18,18,18,7200,temples
+Sprite,A tiny warrior,2,15,0,4,1,3,18,10,14,13,11,50,forests
+Stirge,A bat-squito,2,14,0,3,-1,4,16,11,2,8,6,25,caves,dungeons,forests
+Succubus/Incubus,An infernal tempter,66,15,1,3,1,8,17,13,15,12,20,1100,lower planes
+Tarrasque,The T-Rex of fictional monsters,676,25,10,0,0,30,11,30,3,11,11,155000,all
+Thri-Kreen,A strange insectoid,33,15,1,2,1,12,15,13,8,12,7,200,deserts,savannahs
+Treant,An animate tree,138,16,5,-1,3,23,8,21,12,16,12,5000,forests
 Troglodyte,A disgusting scavenger,13,11,2,0,0,14,10,14,6,10,6,50,underground
 Troll,A regenerating mercenary,84,15,5,1,-1,18,13,20,7,9,7,1800,all
 Umber Hulk,An insectoid predator,93,18,3,1,0,20,13,16,9,10,10,1800,caves,dungeons,underground
@@ -42,8 +51,8 @@ Wyvern,A dragon's cousin,110,13,3,0,1,19,10,16,5,12,6,2300,forests,caves
 Xorn,A ravenous eater of precious metals and gems,73,19,6,0,0,17,10,22,11,10,11,1800,earth plane,underground
 Yeti,A cold monkey humanoid,51,12,3,1,1,18,13,16,8,12,7,700,mountains
 Yuan-ti Abomination,A giant snake humanoid,127,15,3,3,2,19,16,17,17,15,18,2900,jungles,swamps,deseerts,temples
-Arcanaloth,Yugoloth arcanists,104,17,2,1,3,17,12,14,20,16,17,8400,Archeron,Gehenna,Hades,Carceri
-Mezzoloth,Yugoloth foot soldiers,75,18,3,0,0,18,11,16,7,10,11,1800,Archeron,Gehenna,Hades,Carceri
-Nycaloth,Yugoloth air and stealth troops,123,18,4,0,0,20,11,19,12,10,15,Archeron,Gehenna,Hades,Carceri
-Ultroloth,Yugoloth commanders,153,19,4,3,2,16,16,18,18,15,19,10000,Archeron,Gehenna,Hades,Carceri
+Arcanaloth,Yugoloth arcanists,104,17,2,1,3,17,12,14,20,16,17,8400,lower planes
+Mezzoloth,Yugoloth foot soldiers,75,18,3,0,0,18,11,16,7,10,11,1800,lower planes
+Nycaloth,Yugoloth air and stealth troops,123,18,4,0,0,20,11,19,12,10,15,lower planes
+Ultroloth,Yugoloth commanders,153,19,4,3,2,16,16,18,18,15,19,10000,lower planes
 Zombie,Shambling undead,22,8,3,-2,-2,13,6,16,3,6,5,50,all
