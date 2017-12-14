@@ -20,6 +20,7 @@ $(document).ready(function() {
                 console.log(data);
                 console.log(data[0]);
                 console.log(data[1]);
+                console.log(data.length)
                 
                 $.each(data, function( key, val ) {
                 
@@ -66,8 +67,8 @@ function calculatePlayerXP(number, level, difficulty)
         // (array starts at 0) and add it to get the appropriate xp.
 
         totalXP = singleXP * number;
-        console.log(singleXP);
-        console.log(totalXP);
+        //console.log(singleXP);
+        //console.log(totalXP);
         return totalXP;
     
 };

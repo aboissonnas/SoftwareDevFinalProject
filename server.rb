@@ -124,17 +124,18 @@ post '/' do
     environmentalMonsters = Environment[:id => params[:environment]]
    # puts environmentalMonsters.id
     envimonsters = environmentalMonsters.monsters
-    puts envimonsters[0].id
-    eligible = Monster.where(:id => envimonsters[0].id)
+    #puts envimonsters[0].id
+    eligible = Array.new()
+    puts "entering each loop"
     envimonsters.each() do |m|
-        eligible = Monster.where(:id => m.id)
+        eligible << Monster.where(:id => m.id)
+        puts m.id
     end
-
-    puts eligible
+    puts "testing this dataset"
     monsters = eligible.map do |m|
-       monst_info = {:mid => m.id, :name => m.name, :xp => m.xp, :desc => m.description}
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description}
     end
     size = monsters.size()
-    monsters << size
+   # monsters << size
     return json monsters
 end
