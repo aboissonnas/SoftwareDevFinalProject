@@ -14,8 +14,9 @@ def read_monster_file(filepath)
             #split the line into an array of data
             monster_data = line.split(",")
             
-            #if the monster doesn't already exist
             monster = Monster[:name => monster_data.at(0)]
+
+            #if the monster doesn't already exist
             if monster.nil?
                 #populate a monster model with the data
                 monster = Monster.create(:name => monster_data.at(0),
@@ -33,26 +34,14 @@ def read_monster_file(filepath)
                                          :charisma => monster_data.at(12).to_i,
                                          :xp => monster_data.at(13).to_i)
 
-                # CREATES A SUB ARRAY OF ELEMENTS THAT ARE THE ENVIRONMENT DATA
-                # EXCLUDING THE LAST ELEMENT, BECAUSE THAT ELEMENT WILL ALWAYS BE "\n"
-                # WHICH WE DON'T WANT IN THE TABLE OF ENVIRONMENTS
-                environment_list = monster_data[14...monster_data.length-1]
-                        
-                # for each environment that the monster has
-                # CHANGED THIS TO A .each() LOOP BECAUSE HOW IT
-                # WAS ORIGINALLY WAS MORE COMPLICATED THEN IT NEEDED
-                # TO BE
-                environment_list.each() do |environment|
+                for i in 14...(monster_data.length - 1) do
 
-                    environ = Environment[:name => environment]
+                    environ = Environment[:name => monster_data.at(i)]
            
                     #if the environment doesn't already exist
-                    if(monster_data.at(i) == ' ')
-                        #do nothing, get rid of the newline environment
-                    elsif environ.nil?
-            
+                    if environ.nil?
                         #create the environment
-                        environ = Environment.create(:name => environment)
+                        environ = Environment.create(:name => monster_data.at(i))
                     end
                             
                     #link the monster and environment
@@ -62,7 +51,7 @@ def read_monster_file(filepath)
             #if the monster already exists    
             else
 
-                puts "Monster exists"
+                puts "Error: monster already exists in database"
             end
         end
             
