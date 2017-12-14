@@ -12,22 +12,86 @@ $(document).ready(function() {
 
         $('#encounter').empty(); // we only wanna empty it out if it's being clicked again
         monsterXP = 0;
+        actualxp = 0; //monsterMultiplier does not reflect actual encounter xp
+        monsternum = 0;
+        monsterMultiplier = 1; // more monsters = more difficult. Multiply by this to get actual total xp
+
 
         console.log($('#environments').val());
             $.post('/', {environment: $('#environments').val(), maxXP: totalXP}, function(data){
-                //while(monsterXP < totalXP - (partyLevel * 50)){
 
-                console.log(data);
-                console.log(data[0]);
-                console.log(data[1]);
-                console.log(data.length)
-                
-                $.each(data, function( key, val ) {
-                
-                
-                });
+                    randolimit = data.length;
+                    badVals = []; //stop from getting duplicate overages
+                    console.log(randolimit);
+                    var monsters = [];
+                    i = 0; // safety break variable for testing
+                    while(monsterXP < totalXP - (partyLevel * 50)){
 
-               // }
+                        id = Math.floor(Math.random() * randolimit);
+
+                        for( i=0; i < badVals.length; i++){
+                            if(id === badVals[i]){
+                                id = id = Math.floor(Math.random() * randolimit);
+                            }
+                        }
+
+                        monsterXP += data[id].xp;
+                        actualxp += data[id].xp;
+                        monsternum++;
+
+                        if(monsternum === 1){
+                            monsterMultiplier = 1;
+                        }
+                        else if(monsternum === 2){
+                            monsterMultiplier = 1.5;
+                        }
+                        else if(monsternum > 2 && monsternum < 7){
+                            monsterMultiplier = 2;
+                        }
+                        else if(monsternum >= 7 && monsternum < 11){
+                            monsterMultiplier = 2.5;
+                        }
+                        else if(monsternum >= 11 && monsternum < 15){
+                            monsterMultiplier = 3;
+                        }
+                        else{
+                            monsterMultiplier = 4;
+                        }
+
+                        monsterXP *= monsterMultiplier;
+
+                        // check if we're over the limit -- rollback if this is the case and exclude monster
+                        if(monsterXP >= totalXP){
+                            monsterXP /= monsterMultiplier;
+                            actualxp -= data[id].xp;
+                            monsterXP -= data[id].xp;
+                            monsternum --;
+                            badVals.push(id);
+                        }
+                        else{
+                            monsters.push(data[id]);
+                        }
+
+                        
+
+                        // no point in continuing if no matter what, monster will put us over
+                        if(badVals.length === data.length){
+                            break;
+                        }
+
+
+                        // testing porpoises: exceed 100 iterations and break so we don't forever loop
+                        i++;
+                        if(i > 100){
+                            break;
+                        }
+
+
+                    }
+                    console.log(monsters);
+                    console.log(monsterXP);
+                    console.log(actualxp);
+                    console.log(monsternum);
 
 
             });
