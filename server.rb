@@ -115,3 +115,21 @@ get '/' do
     @environs = Environment.all
     erb :home
 end
+
+post '/' do
+    environmentalMonsters = Environment[:id => params[:environment]]
+   # puts environmentalMonsters.id
+    envimonsters = environmentalMonsters.monsters
+    #puts envimonsters[0].id
+    eligible = Array.new()
+    #puts "entering each loop"
+    envimonsters.each() do |m|
+        eligible << Monster.where(:id => m.id)
+     #   puts m.id
+    end
+    #puts "testing this dataset"
+    monsters = eligible.map do |m|
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description}
+    end
+    return json monsters
+end
