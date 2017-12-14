@@ -31,7 +31,7 @@ $(document).ready(function() {
 
                         for( i=0; i < badVals.length; i++){
                             if(id === badVals[i]){
-                                id = id = Math.floor(Math.random() * randolimit);
+                                id = Math.floor(Math.random() * randolimit);
                             }
                         }
 
@@ -57,6 +57,23 @@ $(document).ready(function() {
                         else{
                             monsterMultiplier = 4;
                         }
+                        // take into account party num
+                        if(partyNum < 3){
+                            if(monsterMultiplier <= 2.5){
+                                monsterMultiplier += .5;
+                            }
+                            else if(monsterMultiplier >= 3){
+                                monsterMultiplier += 1;
+                            }
+                        }
+                        else if(partyNum >= 6){
+                            if(monsterMultiplier <= 3){
+                                monsterMultiplier -= .5;
+                            }
+                            else if(monsterMultiplier >= 4){
+                                monsterMultiplier -= 1;
+                            }
+                        }
 
                         monsterXP *= monsterMultiplier;
 
@@ -72,13 +89,10 @@ $(document).ready(function() {
                             monsters.push(data[id]);
                         }
 
-                        
-
-                        // no point in continuing if no matter what, monster will put us over
+                                                // no point in continuing if no matter what, monster will put us over
                         if(badVals.length === data.length){
                             break;
                         }
-
 
                         // testing porpoises: exceed 100 iterations and break so we don't forever loop
                         i++;
