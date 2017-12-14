@@ -31,7 +31,7 @@ $(document).ready(function() {
 
                         for( i=0; i < badVals.length; i++){
                             if(id === badVals[i]){
-                                id = id = Math.floor(Math.random() * randolimit);
+                                id = Math.floor(Math.random() * randolimit);
                             }
                         }
 
@@ -57,6 +57,23 @@ $(document).ready(function() {
                         else{
                             monsterMultiplier = 4;
                         }
+                        // take into account party num
+                        if(partyNum < 3){
+                            if(monsterMultiplier <= 2.5){
+                                monsterMultiplier += .5;
+                            }
+                            else if(monsterMultiplier >= 3){
+                                monsterMultiplier += 1;
+                            }
+                        }
+                        else if(partyNum >= 6){
+                            if(monsterMultiplier <= 3){
+                                monsterMultiplier -= .5;
+                            }
+                            else if(monsterMultiplier >= 4){
+                                monsterMultiplier -= 1;
+                            }
+                        }
 
                         monsterXP *= monsterMultiplier;
 
@@ -72,13 +89,10 @@ $(document).ready(function() {
                             monsters.push(data[id]);
                         }
 
-                        
-
-                        // no point in continuing if no matter what, monster will put us over
+                                                // no point in continuing if no matter what, monster will put us over
                         if(badVals.length === data.length){
                             break;
                         }
-
 
                         // testing porpoises: exceed 100 iterations and break so we don't forever loop
                         i++;
@@ -92,6 +106,26 @@ $(document).ready(function() {
                     console.log(monsterXP);
                     console.log(actualxp);
                     console.log(monsternum);
+
+                    for(i=0; i<monsters.length; i++){
+                        $("#encounter").append("<div class='monster'>");
+                        $("#encounter").append("<strong>" + monsters[i].name + "</strong><br/>");
+                        $("#encounter").append(monsters[i].desc + "<br/>");
+                        $("#encounter").append("Hit Points: " + monsters[i].hp + "<br/>");
+                        $("#encounter").append("AC: " + monsters[i].ac + "<br/>");
+                        $("#encounter").append("Fortitude: " + monsters[i].fort + "<br/>");
+                        $("#encounter").append("Reflex: " + monsters[i].ref + "<br/>");
+                        $("#encounter").append("Will: " + monsters[i].will + "<br/>");
+                        $("#encounter").append("Strength: " + monsters[i].str + "<br/>");
+                        $("#encounter").append("Dexterity: " +monsters[i].dex + "<br/>");
+                        $("#encounter").append("Constitution: " + monsters[i].con + "<br/>");
+                        $("#encounter").append("Intelligence: " + monsters[i].intel + "<br/>");
+                        $("#encounter").append("Wisdom: " + monsters[i].wis + "<br/>");
+                        $("#encounter").append("Charisma: " + monsters[i].cha + "<br/>");
+                        $("#encounter").append("Worth " + monsters[i].xp + " experience points.<br/>");
+                        $("#encounter").append("</div><br/>");
+                    }
+                    $("#encounter").append("<strong>Total experience: </strong>" + actualxp);
 
 
             });
