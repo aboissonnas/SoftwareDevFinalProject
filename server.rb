@@ -13,8 +13,6 @@ def read_monster_file(filepath)
             
             #split the line into an array of data
             monster_data = line.split(",")
-
-            element = monster_data.at(0)
             
             #if the monster doesn't already exist
             monster = Monster[:name => monster_data.at(0)]
@@ -35,37 +33,26 @@ def read_monster_file(filepath)
                                          :charisma => monster_data.at(12).to_i,
                                          :xp => monster_data.at(13).to_i)
 
-                # creates a sub array with the environment data
-                envirorment_list = monster_data[14...monster_data.length]
+                # CREATES A SUB ARRAY OF ELEMENTS THAT ARE THE ENVIRONMENT DATA
+                # EXCLUDING THE LAST ELEMENT, BECAUSE THAT ELEMENT WILL ALWAYS BE "\n"
+                environment_list = monster_data[14...monster_data.length-1]
                         
                 # for each environment that the monster has
                 # CHANGED THIS TO A .each() LOOP BECAUSE HOW IT
                 # WAS ORIGINALLY WAS MORE COMPLICATED THEN IT NEEDED
                 # TO BE
-                envirorment_list.each() do |environment|
+                environment_list.each() do |environment|
 
-                    # BUG FOUND HERE
-                    # BUG FIXED
-                    # BEFORE WE WEREN'T CHECKING THE VALUE OF monster_data.at(i)
-                    # SO IT WAS SOMETIMES A "\n" OR nil VALUE, AND THE
-                    # DB WOULD BE SET WITH THOSE VALUES AS IT'S NAME
-                    # I JUST STORE THE VALUE IN environment SO IT CAN BE CHECKED THAT THE
-                    # VALUE IS VALID
-                    # grab the environment
-
-                    if environment != "\n"
-                        environ = Environment[:name => environment]
+                    environ = Environment[:name => environment]
            
-                        #if the environment doesn't already exist
-                        if environ.nil?
-            
-                            #create the environment
-                            environ = Environment.create(:name => environment)
-                        end
-                            
-                        #link the monster and environment
-                        environ.add_monster(monster)
+                    #if the environment doesn't already exist
+                    if environ.nil?
+                        #create the environment
+                        environ = Environment.create(:name => environment)
                     end
+                            
+                    #link the monster and environment
+                    environ.add_monster(monster)
                 end
 
             #if the monster already exists    
