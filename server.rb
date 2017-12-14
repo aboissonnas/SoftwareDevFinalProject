@@ -35,6 +35,7 @@ def read_monster_file(filepath)
 
                 # CREATES A SUB ARRAY OF ELEMENTS THAT ARE THE ENVIRONMENT DATA
                 # EXCLUDING THE LAST ELEMENT, BECAUSE THAT ELEMENT WILL ALWAYS BE "\n"
+                # WHICH WE DON'T WANT IN THE TABLE OF ENVIRONMENTS
                 environment_list = monster_data[14...monster_data.length-1]
                         
                 # for each environment that the monster has
