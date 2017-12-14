@@ -40,7 +40,9 @@ def read_monster_file(filepath)
                     environ = Environment[:name => monster_data.at(i)]
            
                     #if the environment doesn't already exist
-                    if environ.nil?
+                    if(monster_data.at(i) == ' ')
+                        #do nothing, get rid of the newline environment
+                    elsif environ.nil?
             
                         #create the environment
                         environ = Environment.create(:name => monster_data.at(i))
@@ -53,7 +55,7 @@ def read_monster_file(filepath)
             #if the monster already exists    
             else
 
-                puts "Error: monster already exists in database"
+                puts "Monster exists"
             end
         end
             
@@ -116,4 +118,22 @@ end
 get '/' do
     @environs = Environment.all
     erb :home
+end
+
+post '/' do
+    environmentalMonsters = Environment[:id => params[:environment]]
+   # puts environmentalMonsters.id
+    envimonsters = environmentalMonsters.monsters
+    #puts envimonsters[0].id
+    eligible = Array.new()
+    #puts "entering each loop"
+    envimonsters.each() do |m|
+        eligible << Monster.where(:id => m.id)
+     #   puts m.id
+    end
+    #puts "testing this dataset"
+    monsters = eligible.map do |m|
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description}
+    end
+    return json monsters
 end
