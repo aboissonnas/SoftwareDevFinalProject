@@ -14,14 +14,23 @@ $(document).ready(function() {
         monsterXP = 0;
 
         console.log($('#environments').val());
-       // while(monsterXP < totalXP - (partyLevel * 50))
-        //{
             $.post('/', {environment: $('#environments').val(), maxXP: totalXP}, function(data){
+                //while(monsterXP < totalXP - (partyLevel * 50)){
+
+                console.log(data);
+                console.log(data[0]);
+                console.log(data[1]);
                 
+                $.each(data, function( key, val ) {
+                
+                
+                });
+
+               // }
 
 
             });
-       // }
+       
     });
 
 });

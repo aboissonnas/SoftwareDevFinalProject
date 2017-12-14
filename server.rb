@@ -40,7 +40,9 @@ def read_monster_file(filepath)
                     environ = Environment[:name => monster_data.at(i)]
            
                     #if the environment doesn't already exist
-                    if environ.nil?
+                    if(monster_data.at(i) == ' ')
+                        #do nothing, get rid of the newline environment
+                    elsif environ.nil?
             
                         #create the environment
                         environ = Environment.create(:name => monster_data.at(i))
@@ -53,7 +55,7 @@ def read_monster_file(filepath)
             #if the monster already exists    
             else
 
-                puts "Error: monster already exists in database"
+                puts "Monster exists"
             end
         end
             
@@ -120,12 +122,19 @@ end
 
 post '/' do
     environmentalMonsters = Environment[:id => params[:environment]]
-    puts environmentalMonsters.id
+   # puts environmentalMonsters.id
     envimonsters = environmentalMonsters.monsters
-    for i in envimonsters
-        puts i
+    puts envimonsters[0].id
+    eligible = Monster.where(:id => envimonsters[0].id)
+    envimonsters.each() do |m|
+        eligible = Monster.where(:id => m.id)
     end
-    #eligible = Monster.where(:xp < params[:maxXP])
-    # maybe just grab monsters and compare ids and then randomize to send one back
-    return nil
+
+    puts eligible
+    monsters = eligible.map do |m|
+       monst_info = {:mid => m.id, :name => m.name, :xp => m.xp, :desc => m.description}
+    end
+    size = monsters.size()
+    monsters << size
+    return json monsters
 end
