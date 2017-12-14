@@ -107,6 +107,26 @@ $(document).ready(function() {
                     console.log(actualxp);
                     console.log(monsternum);
 
+                    for(i=0; i<monsters.length; i++){
+                        $("#encounter").append("<div class='monster'>");
+                        $("#encounter").append("<strong>" + monsters[i].name + "</strong><br/>");
+                        $("#encounter").append(monsters[i].desc + "<br/>");
+                        $("#encounter").append("Hit Points: " + monsters[i].hp + "<br/>");
+                        $("#encounter").append("AC: " + monsters[i].ac + "<br/>");
+                        $("#encounter").append("Fortitude: " + monsters[i].fort + "<br/>");
+                        $("#encounter").append("Reflex: " + monsters[i].ref + "<br/>");
+                        $("#encounter").append("Will: " + monsters[i].will + "<br/>");
+                        $("#encounter").append("Strength: " + monsters[i].str + "<br/>");
+                        $("#encounter").append("Dexterity: " +monsters[i].dex + "<br/>");
+                        $("#encounter").append("Constitution: " + monsters[i].con + "<br/>");
+                        $("#encounter").append("Intelligence: " + monsters[i].intel + "<br/>");
+                        $("#encounter").append("Wisdom: " + monsters[i].wis + "<br/>");
+                        $("#encounter").append("Charisma: " + monsters[i].cha + "<br/>");
+                        $("#encounter").append("Worth " + monsters[i].xp + " experience points.<br/>");
+                        $("#encounter").append("</div><br/>");
+                    }
+                    $("#encounter").append("<strong>Total experience: </strong>" + actualxp);
+
 
             });
        

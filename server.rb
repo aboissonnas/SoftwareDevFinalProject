@@ -129,7 +129,10 @@ post '/' do
     end
     #puts "testing this dataset"
     monsters = eligible.map do |m|
-       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description}
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description,
+    :ref => m.first.reflex, :fort => m.first.fortitude, :will => m.first.will, :str => m.first.strength,
+    :dex => m.first.dexterity, :con => m.first.constitution, :intel => m.first.intelligence, :wis => m.first.wisdom,
+    :cha => m.first.charisma, :hp => m.first.hit_points, :ac => m.first.ac}
     end
     return json monsters
 end
