@@ -148,6 +148,7 @@ while True:
     else:
         print("please change the input")
         makeCorrectionsToInput(stats)
+        print("adding monster to file")
 
     writeToFile(file_path, stats)
     orderFile(file_path)
