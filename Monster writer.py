@@ -32,7 +32,24 @@ def orderFile(file_path):
         w_file.write(line)
     w_file.close()
 
+def reformat(file_path):
+    lines = []
+    with open(file_path) as f:
+        for line in f:
+            lines.append(line)
+            
+    last_line = len(lines)-1
+    last_char = len(lines[last_line])-1
+    if lines[last_line][last_char] != "\n":
+        lines[last_line] = lines[last_line] + "\n"
+        
+    txt_file = open(file_path, "w")
+    for line in lines:
+        txt_file.write(line)
+    txt_file.close()
+
 file_path = "Monster.txt"
+reformat(file_path)
 orderFile(file_path)
 
 while True:
