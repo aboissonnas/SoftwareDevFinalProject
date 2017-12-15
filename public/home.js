@@ -17,12 +17,12 @@ $(document).ready(function() {
         monsterMultiplier = 1; // more monsters = more difficult. Multiply by this to get actual total xp
 
 
-        console.log($('#environments').val());
+      //  console.log($('#environments').val());
             $.post('/', {environment: $('#environments').val(), maxXP: totalXP}, function(data){
 
                     randolimit = data.length;
                     badVals = []; //stop from getting duplicate overages
-                    console.log(randolimit);
+                    //console.log(randolimit);
                     var monsters = [];
                     i = 0; // safety break variable for testing
                     while(monsterXP < totalXP - (partyLevel * 50)){
@@ -102,13 +102,13 @@ $(document).ready(function() {
 
 
                     }
-                    console.log(monsters);
-                    console.log(monsterXP);
-                    console.log(actualxp);
-                    console.log(monsternum);
-
+                    //console.log(monsters);
+                    //console.log(monsterXP);
+                    //console.log(actualxp);
+                    //console.log(monsternum);
+                    $("#encounter").append("<div class ='row'>");
                     for(i=0; i<monsters.length; i++){
-                        $("#encounter").append("<div class='monster'>");
+                        $("#encounter").append("<div class='col'>");
                         $("#encounter").append("<strong>" + monsters[i].name + "</strong><br/>");
                         $("#encounter").append(monsters[i].desc + "<br/>");
                         $("#encounter").append("Hit Points: " + monsters[i].hp + "<br/>");
@@ -123,8 +123,9 @@ $(document).ready(function() {
                         $("#encounter").append("Wisdom: " + monsters[i].wis + "<br/>");
                         $("#encounter").append("Charisma: " + monsters[i].cha + "<br/>");
                         $("#encounter").append("Worth " + monsters[i].xp + " experience points.<br/>");
-                        $("#encounter").append("</div><br/>");
+                        $("#encounter").append("</div>");
                     }
+                    $("#encounter").append("</div>");
                     $("#encounter").append("<strong>Total experience: </strong>" + actualxp);
 
 
