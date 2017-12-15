@@ -14,8 +14,9 @@ def read_monster_file(filepath)
             #split the line into an array of data
             monster_data = line.split(",")
             
-            #if the monster doesn't already exist
             monster = Monster[:name => monster_data.at(0)]
+
+            #if the monster doesn't already exist
             if monster.nil?
                 #populate a monster model with the data
                 monster = Monster.create(:name => monster_data.at(0),
@@ -33,7 +34,7 @@ def read_monster_file(filepath)
                                          :charisma => monster_data.at(12).to_i,
                                          :xp => monster_data.at(13).to_i)
 
-                for i in 14...(monster_data.length-1) do
+                for i in 14...(monster_data.length - 1) do
 
                     environ = Environment[:name => monster_data.at(i)]
            
@@ -113,4 +114,25 @@ end
 get '/' do
     @environs = Environment.all
     erb :home
+end
+
+post '/' do
+    environmentalMonsters = Environment[:id => params[:environment]]
+   # puts environmentalMonsters.id
+    envimonsters = environmentalMonsters.monsters
+    #puts envimonsters[0].id
+    eligible = Array.new()
+    #puts "entering each loop"
+    envimonsters.each() do |m|
+        eligible << Monster.where(:id => m.id)
+     #   puts m.id
+    end
+    #puts "testing this dataset"
+    monsters = eligible.map do |m|
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description,
+    :ref => m.first.reflex, :fort => m.first.fortitude, :will => m.first.will, :str => m.first.strength,
+    :dex => m.first.dexterity, :con => m.first.constitution, :intel => m.first.intelligence, :wis => m.first.wisdom,
+    :cha => m.first.charisma, :hp => m.first.hit_points, :ac => m.first.ac}
+    end
+    return json monsters
 end
