@@ -110,7 +110,7 @@ configure do
     end
 
     #populate the database
-    #read_monster_file("Monster.txt")
+    read_monster_file("Monster.txt")
 end
 
 get '/' do
