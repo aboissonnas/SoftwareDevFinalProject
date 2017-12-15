@@ -33,23 +33,14 @@ def read_monster_file(filepath)
                                          :charisma => monster_data.at(12).to_i,
                                          :xp => monster_data.at(13).to_i)
 
-                # CREATES A SUB ARRAY OF ELEMENTS THAT ARE THE ENVIRONMENT DATA
-                # EXCLUDING THE LAST ELEMENT, BECAUSE THAT ELEMENT WILL ALWAYS BE "\n"
-                # WHICH WE DON'T WANT IN THE TABLE OF ENVIRONMENTS
-                environment_list = monster_data[14...monster_data.length-1]
-                        
-                # for each environment that the monster has
-                # CHANGED THIS TO A .each() LOOP BECAUSE HOW IT
-                # WAS ORIGINALLY WAS MORE COMPLICATED THEN IT NEEDED
-                # TO BE
-                environment_list.each() do |environment|
+                for i in 14...(monster_data.length-1) do
 
-                    environ = Environment[:name => environment]
+                    environ = Environment[:name => monster_data.at(i)]
            
                     #if the environment doesn't already exist
                     if environ.nil?
                         #create the environment
-                        environ = Environment.create(:name => environment)
+                        environ = Environment.create(:name => monster_data.at(i))
                     end
                             
                     #link the monster and environment
