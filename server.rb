@@ -40,7 +40,6 @@ def read_monster_file(filepath)
            
                     #if the environment doesn't already exist
                     if environ.nil?
-                        
                         #create the environment
                         environ = Environment.create(:name => monster_data.at(i))
                     end
@@ -119,24 +118,26 @@ get '/' do
 end
 
 post '/' do
-
     #grab the monsters associated with the requested environment
     envimonsters = Environment[:id => params[:environment]].monsters #monsters is an array of Monsters
-
-    eligible = Array.new()
     
+    eligible = Array.new()
+        
     #grab all monsters with appropriate xp
     envimonsters.each do |m|
-
+    
         if m.xp <= params[:maxXP]
-            
+                
             eligible << m
         end
     end
     
+    #puts "testing this dataset"
     monsters = eligible.map do |m|
-       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description}
+       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description,
+    :ref => m.first.reflex, :fort => m.first.fortitude, :will => m.first.will, :str => m.first.strength,
+    :dex => m.first.dexterity, :con => m.first.constitution, :intel => m.first.intelligence, :wis => m.first.wisdom,
+    :cha => m.first.charisma, :hp => m.first.hit_points, :ac => m.first.ac}
     end
-
     return json monsters
 end
