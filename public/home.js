@@ -89,7 +89,9 @@ $(document).ready(function() {
                             monsters.push(data[id]);
                         }
 
-                                                // no point in continuing if no matter what, monster will put us over
+                        
+
+                        // no point in continuing if no matter what, monster will put us over
                         if(badVals.length === data.length){
                             break;
                         }

@@ -107,6 +107,7 @@ configure do
 
         DB.create_join_table :monster_id => :monsters, :environment_id => :environments
     end
+
     #populate the database
     read_monster_file("Monster.txt")
 end
@@ -117,16 +118,20 @@ get '/' do
 end
 
 post '/' do
-    environmentalMonsters = Environment[:id => params[:environment]]
-   # puts environmentalMonsters.id
-    envimonsters = environmentalMonsters.monsters
-    #puts envimonsters[0].id
+    #grab the monsters associated with the requested environment
+    envimonsters = Environment[:id => params[:environment]].monsters #monsters is an array of Monsters
+    
     eligible = Array.new()
-    #puts "entering each loop"
-    envimonsters.each() do |m|
-        eligible << Monster.where(:id => m.id)
-     #   puts m.id
+        
+    #grab all monsters with appropriate xp
+    envimonsters.each do |m|
+    
+        if m.xp <= params[:maxXP]
+                
+            eligible << m
+        end
     end
+    
     #puts "testing this dataset"
     monsters = eligible.map do |m|
        monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description,
