@@ -1,15 +1,3 @@
-def validInputEntered(stats, messege):
-    last_element = len(stats) - 1
-    while stats[last_element] == "":
-        print("Please enter valid input")
-        stats[last_element] = raw_input(messege)
-
-def validInputEnteredAt(stats, messege, index):
-    last_element = index
-    while stats[last_element] == "":
-        print("Please enter valid input")
-        stats[last_element] = raw_input(messege)
-        
 def validTypedInputEntered(stats, message, index, flag):
     if flag == "i":
         while True:
