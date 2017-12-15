@@ -6,7 +6,7 @@ def getEnvironments(stats):
         e = raw_input("enter environment: ")
 
 def getMonsterStats(stats):
-    s = ["name", "description", "hit points", "ac", "fortitude",
+    s = ["name", "description", "hit points", "armor class", "fortitude",
          "reflex", "will", "strength", "dexterity",
          "constitution", "intelligence", "wisdom", "charisma",
          "xp"]
