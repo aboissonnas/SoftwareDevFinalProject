@@ -109,7 +109,7 @@ configure do
     end
 
     #populate the database
-    read_monster_file("Monster.txt")
+    #read_monster_file("Monster.txt")
 end
 
 get '/' do
@@ -119,7 +119,7 @@ end
 
 post '/' do
     #grab the monsters associated with the requested environment
-    envimonsters = Environment[:id => params[:environment]].monsters #monsters is an array of Monsters
+    envimonsters = Environment[:id => params[:environment]].monsters #envimonsters is an array of Monsters
     
     eligible = Array.new()
         
