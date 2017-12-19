@@ -109,7 +109,7 @@ configure do
     end
 
     #populate the database
-    #read_monster_file("Monster.txt")
+    read_monster_file("Monster.txt")
 end
 
 get '/' do
@@ -126,7 +126,7 @@ post '/' do
     #grab all monsters with appropriate xp
     envimonsters.each do |m|
     
-        if m.xp <= params[:maxXP]
+        if m.xp <= (params[:maxXP]).to_i
                 
             eligible << m
         end
@@ -134,10 +134,10 @@ post '/' do
     
     #puts "testing this dataset"
     monsters = eligible.map do |m|
-       monst_info = {:mid => m.first.id, :name => m.first.name, :xp => m.first.xp, :desc => m.first.description,
-    :ref => m.first.reflex, :fort => m.first.fortitude, :will => m.first.will, :str => m.first.strength,
-    :dex => m.first.dexterity, :con => m.first.constitution, :intel => m.first.intelligence, :wis => m.first.wisdom,
-    :cha => m.first.charisma, :hp => m.first.hit_points, :ac => m.first.ac}
+       monst_info = {:mid => m.id, :name => m.name, :xp => m.xp, :desc => m.description,
+    :ref => m.reflex, :fort => m.fortitude, :will => m.will, :str => m.strength,
+    :dex => m.dexterity, :con => m.constitution, :intel => m.intelligence, :wis => m.wisdom,
+    :cha => m.charisma, :hp => m.hit_points, :ac => m.ac}
     end
     return json monsters
 end
