@@ -4,8 +4,20 @@
 <title>People Die if They Are Killed</title>
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type='text/javascript' src='home.js'></script>
+
+<!-- that's right, we're using bootstrap--> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 </head>
 <body>
+<center>
+<div class ='container'>
+<h1>Bode :3's Random Encounter Generator</h1>
+New from dev team Bode :3! This generator will take the inputs given and generate a random encounter.<br/>
+Generator complies with D&D 5e rules for encounters, and pulls from the 5e Monster Manual.<br/>
+If you're not satisfied with the encounter, feel free to reroll it.<br/><hr>
 Enter a number of party members: <input type="number" id='party-number' min=1 max=20>
 Enter a level: <input type="number" id='party-level' min=1 max=20>
 <form>
@@ -26,10 +38,11 @@ Difficulty of encounter: <select id = "diff">
 <option value = 2>Moderate</option>
 <option value = 3>Difficult</option>
 <option value = 4>Impossible</option>
-</select>
+</select><br/><br/>
 
-<button id='generate'>Generate Encounter</button>
-<div id = 'encounter'>
+<button id='generate'>Generate Encounter</button></div>
+<div id = 'encounter' class='container'>
 </div>
+</center>
 </body>
 </html>

@@ -122,8 +122,23 @@ post '/' do
     envimonsters = Environment[:id => params[:environment]].monsters #envimonsters is an array of Monsters
     
     eligible = Array.new()
+
+    #grab the monsters associated with all environments
+    #if Environment[:id => params[:environment]].name != "all"
+
+    #    from_all = Environment[:name => "all"].monsters
+
+    #    #grab monsters with appropriate xp that are associated with all environments
+    #    from_all.each do |m|
         
-    #grab all monsters with appropriate xp
+    #        if m.xp <= (params[:maxXP]).to_i
+        
+    #            eligible << m
+    #        end
+    #    end
+    #end
+        
+    #grab all monsters with appropriate xp from the requested environment
     envimonsters.each do |m|
     
         if m.xp <= (params[:maxXP]).to_i
@@ -131,7 +146,7 @@ post '/' do
             eligible << m
         end
     end
-    
+
     #puts "testing this dataset"
     monsters = eligible.map do |m|
        monst_info = {:mid => m.id, :name => m.name, :xp => m.xp, :desc => m.description,
